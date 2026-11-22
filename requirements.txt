@@ -1,0 +1,8 @@
+# Versions the notebook was executed and tested with (Python 3.15.0, Windows 11).
+pandas==3.1.1
+numpy==2.5.5
+scipy==1.18.1
+matplotlib==3.11.2
+seaborn==0.13.2
+# Lets VS Code / Jupyter run the notebook. For the JupyterLab interface itself: pip install jupyterlab
+ipykernel==7.4.0
