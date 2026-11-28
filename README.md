@@ -173,7 +173,8 @@ customer-behaviour-analysis/
 │   ├── 03_analysis.sql
 │   └── expected_results.md
 ├── requirements.txt
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
 ## Tech stack
