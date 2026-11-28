@@ -4,7 +4,9 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=flat-square&logo=mysql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-dashboard-yellow?style=flat-square&logo=powerbi&logoColor=black)
 
-> **Headline:** across 3,900 purchases worth $233,081, spend per purchase barely differs by gender, subscription, shipping type, age group or category. Group averages sit within about $3 of each other and none of the gaps is statistically significant. Revenue differences come from how many customers a group has, not from how much each one spends.
+> **Headline (synthetic data):** across 3,900 simulated purchases worth $233,081, spend per purchase barely differs by gender, subscription, shipping type, age group or category. Group averages sit within about $3 of each other and none of the gaps is statistically significant. Revenue differences come from how many customers a group has, not from how much each one spends.
+
+> **The dataset is synthetic.** Its Kaggle author states it was generated with ChatGPT. This project demonstrates an analysis workflow (Python, SQL, statistics, Power BI); it says nothing about real shoppers.
 
 ## Problem statement
 
@@ -23,7 +25,8 @@ The data answers the first question mostly with "no", which changes what a sensi
 | Property | Detail |
 |---|---|
 | Rows / columns | 3,900 rows (one per customer purchase) x 18 columns; `Customer ID` is unique, no duplicate rows |
-| Source | A public Kaggle customer shopping dataset. **The exact Kaggle page and licence are not recorded in this repo yet** (to be added) |
+| Source | [Customer Shopping Trends Dataset](https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset) by Sourav Banerjee, Kaggle (the first rows on that page match the raw file here) |
+| Nature and licence | Synthetic: the author says it was generated with ChatGPT. Kaggle lists the licence as "Other (specified in description)" |
 | Raw file | `data/raw/customer_shopping_behavior.csv` |
 | Cleaned file | `data/cleaned/customers.csv` (19 columns), reproduced exactly by the notebook |
 | Missing values | 37 in `Review Rating` (0.9%), filled with the median rating of the product's category |
@@ -31,7 +34,7 @@ The data answers the first question mostly with "no", which changes what a sensi
 
 **Feature groups:** demographics (age, gender, location, subscription status), purchase details (item, category, purchase amount, season, size, colour), and shopping behaviour (discount applied, previous purchases, purchase frequency, review rating, shipping type).
 
-**A caution about the data.** The distributions are unusually uniform: seven purchase-frequency categories each hold about 550 rows, and average spend barely moves across any grouping. That pattern is typical of synthetic data, so findings here show how to analyse this kind of data, not how real shoppers behave.
+**What the synthetic origin looks like in the data.** Seven purchase-frequency categories each hold about 550 rows, and average spend barely moves across any grouping. The findings show how to analyse data like this, not how real shoppers behave.
 
 ## Methodology
 
@@ -85,7 +88,7 @@ Men are 68% of customers and bring 67.7% of revenue; women are 32% and bring 32.
 
 ## Key insights and recommendations
 
-The recommendations below are limited to what the data supports.
+The recommendations show what an analyst would advise **if this simulated data were real**. They are limited to what the data supports.
 
 1. **Do not target on expected spend.** No group spends meaningfully more per purchase, so there is no high-value segment to favour on basket size. Differences in revenue are differences in customer counts.
 2. **Gender: this is an acquisition question, not a spend question.** Female customers are 32% of the base and spend the same per purchase as male customers. If growth is the goal, the lever is reaching more women, which needs a campaign test, not an assumption.
@@ -96,7 +99,7 @@ The recommendations below are limited to what the data supports.
 
 ### Corrections to the original report and presentation
 
-The Word report and the slide deck in this repo were written before the checks above. They are left unchanged, but a few statements in them do not match the data:
+The [Word report and slide deck](archive/) were written before the checks above. They are kept unchanged in `archive/`, but a few statements in them do not match the data:
 
 | Original statement | What the data shows |
 |---|---|
@@ -108,7 +111,7 @@ The Word report and the slide deck in this repo were written before the checks a
 
 ## Limitations and future improvements
 
-- **Likely synthetic data.** Real customer data would show more structure.
+- **Synthetic data.** No conclusion transfers to a real retailer.
 - **One row per customer.** There is no time dimension, so retention, seasonality and repeat purchase cannot be studied.
 - **Revenue is the purchase amount only.** There is no cost, margin or return data.
 - **Statistical significance is not business value.** A small but real effect (such as the repeat-buyer subscription gap) can still be worth acting on if the intervention is cheap.
@@ -160,10 +163,10 @@ customer-behaviour-analysis/
 │   └── customer_trend_data_analysis.ipynb
 ├── powerbi/
 │   └── dashboard.pbix
-├── presentation/
+├── archive/                           # original report and slides, unchanged
+│   ├── README.md
+│   ├── customer_behavior_report.docx
 │   └── Customer-Shopping-Behavior-Analysis.pptx
-├── report/
-│   └── customer_behavior_report.docx
 ├── sql/
 │   ├── 01_schema.sql
 │   ├── 02_load.sql
@@ -180,6 +183,6 @@ Python (pandas, NumPy, SciPy, matplotlib, seaborn) · MySQL 8.0 (window function
 ## My role, license and contact
 
 - **Author:** Abdullah Waheed, BS Data Science student at FAST NUCES, Islamabad.
-- **Data licence:** not recorded yet (see Data).
-- **Code licence:** none chosen yet.
+- **Code licence:** [MIT](LICENSE), for the code in this repository.
+- **Data licence:** the dataset belongs to its author and is not covered by the MIT licence (see Data).
 - **Contact:** [GitHub](https://github.com/abdullahwaheed0112) · [LinkedIn](https://linkedin.com/in/abdullah-waheed-05a5a1416)
