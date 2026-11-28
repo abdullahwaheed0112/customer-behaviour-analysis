@@ -1,12 +1,23 @@
-# Customer Shopping Behavior Analysis
+# Customer Shopping Behaviour: testing whether any customer group really spends more (synthetic data)
 
 ![Python](https://img.shields.io/badge/Python-3.15-blue?style=flat-square&logo=python)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=flat-square&logo=mysql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-dashboard-yellow?style=flat-square&logo=powerbi&logoColor=black)
 
-> **Headline (synthetic data):** across 3,900 simulated purchases worth $233,081, spend per purchase barely differs by gender, subscription, shipping type, age group or category. Group averages sit within about $3 of each other and none of the gaps is statistically significant. Revenue differences come from how many customers a group has, not from how much each one spends.
+**No group spends meaningfully more per purchase; revenue gaps come from how many customers each group has.**
 
-> **The dataset is synthetic.** Its Kaggle author states it was generated with ChatGPT. This project demonstrates an analysis workflow (Python, SQL, statistics, Power BI); it says nothing about real shoppers.
+| | |
+|---|---|
+| **Problem** | A retailer deciding where to spend a marketing budget tends to chase "valuable" groups (subscribers, one gender, loyal buyers) without checking that they spend more. |
+| **Solution** | Cleaned 3,900 purchases in Python, answered ten business questions in MySQL, tested each gap statistically and built a Power BI dashboard. |
+| **Result** | **Group averages sit within about $3 of each other; no spend gap is significant.** Several claims in the first report did not survive testing and are corrected below. |
+| **My role** | Solo project. |
+
+![Power BI dashboard](docs/images/05_powerbi_dashboard.png)
+
+*Screenshot of `powerbi/dashboard.pbix` taken from the original project report. Its headline numbers match the notebook: 3.9K customers, $59.76 average purchase, 3.75 average rating, 27% subscribers.*
+
+> **The dataset is synthetic.** Its Kaggle author states it was generated with ChatGPT. The project shows an analysis workflow; it says nothing about real shoppers.
 
 ## Problem statement
 
@@ -45,12 +56,6 @@ The data answers the first question mostly with "no", which changes what a sensi
 5. **Dashboard in Power BI** (`powerbi/dashboard.pbix`) for interactive exploration.
 
 ## Results
-
-### Dashboard
-
-![Power BI dashboard: customers, average purchase, rating, subscription mix, category and age-group charts](docs/images/05_powerbi_dashboard.png)
-
-*Screenshot of `powerbi/dashboard.pbix` taken from the original project report. Its headline numbers match the notebook: 3.9K customers, $59.76 average purchase, 3.75 average rating, 27% subscribers.*
 
 ### Spend per purchase by group
 
